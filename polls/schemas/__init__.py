@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 from django.db import models
 from pydantic import BaseModel as _BaseModel
@@ -38,3 +38,25 @@ class FastChoices(BaseModel):
     @classmethod
     def from_qs(cls, qs):
         return cls(items=FastChoice.from_orms(qs))
+
+
+class FastLogin(BaseModel):
+    last_login: Optional[datetime]
+    is_superuser: bool
+    username: str
+    email: str
+    is_staff: bool
+    is_active: bool
+    date_joined: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+
+class RegisterRequest(BaseModel):
+    username: str
+    email: str
+    password: str

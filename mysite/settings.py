@@ -81,7 +81,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-print("USE_POSTGRES", bool(os.environ.get("USE_POSTGRES", "")))
 if os.environ.get("USE_POSTGRES", ""):
     DATABASES["default"] = {
         "ENGINE": "django.db.backends.postgresql",
