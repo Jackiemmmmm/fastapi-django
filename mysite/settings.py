@@ -81,13 +81,14 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+print("USE_POSTGRES", bool(os.environ.get("USE_POSTGRES", "")))
 if os.environ.get("USE_POSTGRES", ""):
     DATABASES["default"] = {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "fastapi_django",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "127.0.0.1",
+        "NAME": "mydatabase",
+        "USER": "myuser",
+        "PASSWORD": "mypassword",
+        "HOST": "localhost",
         "PORT": "5432",
     }
 

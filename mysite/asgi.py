@@ -15,6 +15,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+os.environ.setdefault("USE_POSTGRES", "True")
 
 application = get_asgi_application()
 fastapp = FastAPI()
