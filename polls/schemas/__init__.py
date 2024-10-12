@@ -48,6 +48,7 @@ class FastLogin(BaseModel):
     is_staff: bool
     is_active: bool
     date_joined: datetime
+    token: str
     model_config = ConfigDict(from_attributes=True)
 
 
@@ -60,3 +61,7 @@ class RegisterRequest(BaseModel):
     username: str
     email: str
     password: str
+
+
+class TokenRequest(BaseModel):
+    username: str
